@@ -1,7 +1,7 @@
-"""Módulo de infraestrutura Git para o KiroSonar.
+"""Git infrastructure module for KiroSonar.
 
-Responsável por interagir com o Git via subprocess para descobrir
-arquivos alterados no working tree e ler seus conteúdos.
+Responsible for interacting with Git via subprocess to discover
+changed files in the working tree and read their contents.
 """
 
 import subprocess
@@ -9,14 +9,14 @@ import sys
 
 
 def get_changed_files() -> list[str]:
-    """Executa 'git diff --name-only' e retorna a lista de arquivos alterados.
+    """Execute 'git diff --name-only' and return the list of changed files.
 
     Returns:
-        Lista de caminhos relativos dos arquivos modificados.
-        Retorna lista vazia se não houver alterações.
+        List of relative paths of modified files.
+        Returns an empty list if there are no changes.
 
     Raises:
-        SystemExit: Se o diretório atual não for um repositório Git.
+        SystemExit: If the current directory is not a valid Git repository.
     """
     result = subprocess.run(
         ["git", "diff", "--name-only"],
@@ -39,16 +39,16 @@ def get_changed_files() -> list[str]:
 
 
 def read_file_content(file_path: str) -> str:
-    """Lê e retorna o conteúdo completo de um arquivo.
+    """Read and return the full content of a file.
 
     Args:
-        file_path: Caminho relativo ou absoluto do arquivo.
+        file_path: Relative or absolute path to the file.
 
     Returns:
-        Conteúdo do arquivo como string.
+        File content as a string.
 
     Raises:
-        FileNotFoundError: Se o arquivo não existir.
+        FileNotFoundError: If the file does not exist.
     """
     with open(file_path, "r", encoding="utf-8") as f:
         return f.read()
