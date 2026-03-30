@@ -317,3 +317,22 @@ Conforme o padrao de projeto estabelecido pelo professor atualize o readme para 
 > (agora em `.kiro/padrao-projeto.md`). O padrão exige: Nome do Projeto, Breve descrição, 
 > Sumário de documentações, Tecnologias utilizadas, Instruções de instalação/uso, 
 > Integrantes do grupo.
+
+---
+
+Preciso que você configure o Ruff como linter e formatter do projeto KiroSonar, seguindo estas instruções:
+                                                                                                                                                                                                                                    
+## 1. Instalação                                                                                                                                 
+
+Adicione o ruff como dependência de desenvolvimento no `backend/pyproject.toml` usando o grupo `[project.optional-dependencies]` com a chave `dev`. Depois rode `pip install -e ".[dev]"` para instalar.                            
+
+## 2. Configuração no pyproject.
+Adicione a seção `[tool.ruff]` no `backend/pyproject.toml` com estas convenções:                                                                                                                                - Target: Python 3.11
+- Line length: 99
+- Regras habilitadas:
+    - E (pycodestyle errors)
+    - W (pycodestyle warnings)
+    - F (pyflakes)
+    - I (isort — ordenação de imports)
+    - N (pep8-naming)
+
