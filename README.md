@@ -9,8 +9,6 @@ Code Review Inteligente e Auto-Fix com IA diretamente no seu terminal. O KiroSon
 - [RFC 001: Arquitetura MVP](./backend/docs/RFC-001-KiroSonar-MVP.md)
 - [Padrão de Projeto](./backend/docs/padrao-projeto.md)
 - [Tickets de Desenvolvimento (Backend)](./backend/docs/tickets/)
-- [User Stories (Frontend)](./frontend/docs/user-stories/)
-- [Code Reviews (Frontend)](./frontend/docs/code-review/)
 
 ---
 
