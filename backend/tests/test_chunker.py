@@ -1,6 +1,11 @@
 """Unit tests for src.chunker module."""
 
-from src.chunker import MIN_LINES_FOR_CHUNKING, split_into_chunks, _chunk_by_size, _apply_overlap
+from src.chunker import (
+    MIN_LINES_FOR_CHUNKING,
+    _apply_overlap,
+    _chunk_by_size,
+    split_into_chunks,
+)
 
 
 class TestSplitIntoChunks:

@@ -225,7 +225,9 @@ class TestCmdInit:
     @patch("src.cli._check_kiro_cli")
     @patch("src.cli._discover_spec_files", return_value=[])
     @patch("src.cli.os.path.isfile")
-    def test_init_when_target_already_exists(self, mock_isfile, mock_specs, mock_check, capsys) -> None:
+    def test_init_when_target_already_exists(
+        self, mock_isfile, mock_specs, mock_check, capsys
+    ) -> None:
         mock_isfile.return_value = True
         with patch("sys.argv", ["kirosonar", "init"]):
             main()
@@ -235,7 +237,9 @@ class TestCmdInit:
     @patch("src.cli._check_kiro_cli")
     @patch("src.cli._discover_spec_files", return_value=[])
     @patch("src.cli.os.path.isfile", return_value=False)
-    def test_init_when_template_not_found(self, mock_isfile, mock_specs, mock_check, capsys) -> None:
+    def test_init_when_template_not_found(
+        self, mock_isfile, mock_specs, mock_check, capsys
+    ) -> None:
         with patch("sys.argv", ["kirosonar", "init"]):
             main()
         output = capsys.readouterr().out
@@ -276,7 +280,9 @@ class TestAnalyzeFile:
     @patch("src.cli.read_file_content", return_value="print('hi')")
     @patch("src.cli.get_file_diff", return_value="@@ diff @@")
     @patch("src.cli.call_llm", side_effect=RuntimeError("timeout"))
-    def test_returns_error_on_llm_failure_with_diff(self, mock_llm, mock_diff, mock_read, mock_val) -> None:
+    def test_returns_error_on_llm_failure_with_diff(
+        self, mock_llm, mock_diff, mock_read, mock_val
+    ) -> None:
         from src.cli import _analyze_file
 
         path, response, error, diff = _analyze_file("file.py", "rules")
@@ -288,7 +294,9 @@ class TestAnalyzeFile:
     @patch("src.cli.get_file_diff", return_value="")
     @patch("src.cli.split_into_chunks", return_value=["x = 1\n"])
     @patch("src.cli.call_llm", return_value="ok")
-    def test_single_chunk_no_diff(self, mock_llm, mock_chunks, mock_diff, mock_read, mock_val) -> None:
+    def test_single_chunk_no_diff(
+        self, mock_llm, mock_chunks, mock_diff, mock_read, mock_val
+    ) -> None:
         from src.cli import _analyze_file
 
         path, response, error, diff = _analyze_file("file.py", "rules")
